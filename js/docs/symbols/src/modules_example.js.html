@@ -1,0 +1,96 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span> @fileOverview Example Module for the Authoritarian Dictatoriship Framework. Demonstrates all the 
+<span class='line'>  3</span> available module functionality provided by the framework.
+<span class='line'>  4</span> */</span><span class="WHIT">
+<span class='line'>  5</span> 
+<span class='line'>  6</span> </span><span class="COMM">/**	
+<span class='line'>  7</span> 	Example Module for the Authoritarian Dictatoriship Framework. Demonstrates all the available 
+<span class='line'>  8</span> 	@name example
+<span class='line'>  9</span> 	@class
+<span class='line'> 10</span> 	module functionality provided by the framework.
+<span class='line'> 11</span> */</span><span class="WHIT">
+<span class='line'> 12</span> </span><span class="PUNC">(</span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">$</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">window</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">document</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 13</span> </span><span class="WHIT">	</span><span class="COMM">/*
+<span class='line'> 14</span> 		Do module specific stuff here if necessary. Any code executed here is executed immediately
+<span class='line'> 15</span> 		when the script is loaded. Use the callbacks provided by the framework to time code execution 
+<span class='line'> 16</span> 		based on various ready states.
+<span class='line'> 17</span> 	*/</span><span class="WHIT">
+<span class='line'> 18</span> 
+<span class='line'> 19</span> 
+<span class='line'> 20</span> </span><span class="WHIT">	</span><span class="NAME">define</span><span class="PUNC">(</span><span class="STRN">'example'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 21</span> </span><span class="WHIT">		</span><span class="COMM">/**
+<span class='line'> 22</span> 			Array of dependencies that must be loaded before defining this module. Use a relative root
+<span class='line'> 23</span> 			path.
+<span class='line'> 24</span> 			@name dependencies
+<span class='line'> 25</span> 			@memberOf example
+<span class='line'> 26</span> 			@private
+<span class='line'> 27</span> 		*/</span><span class="WHIT">
+<span class='line'> 28</span> </span><span class="WHIT">		</span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 29</span> </span><span class="WHIT">		</span><span class="COMM">/** @lends example */</span><span class="WHIT">
+<span class='line'> 30</span> </span><span class="WHIT">		</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'> 32</span> 				Modules must have a unique name and it must be a valid JS object key. The framework uses this
+<span class='line'> 33</span> 				name to store this module's definition, so this module will be stored as  
+<span class='line'> 34</span> 				Framework.modules.example. But you shouldn't need to know that unless you work on the
+<span class='line'> 35</span> 				framework itself. Remember, the framework is an authoritarian dictatorship, so if your module
+<span class='line'> 36</span> 				makes direct calls to other modules or messes around in the Framework	without going through 
+<span class='line'> 37</span> 				the proper bureaucracy, you will be disappeared.
+<span class='line'> 38</span> 				@required
+<span class='line'> 39</span> 			*/</span><span class="WHIT">
+<span class='line'> 40</span> </span><span class="WHIT">			</span><span class="NAME">name</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'example'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 41</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'> 42</span> 				Called when this module is loaded into the framework. Always called before
+<span class='line'> 43</span> 				the domReady callback.
+<span class='line'> 44</span> 				@param {Framework} Framework Reference to the framework that loaded the module
+<span class='line'> 45</span> 			*/</span><span class="WHIT">
+<span class='line'> 46</span> </span><span class="WHIT">			</span><span class="NAME">moduleReady</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">Framework</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 47</span> </span><span class="WHIT">				</span><span class="NAME">Framework.call</span><span class="PUNC">(</span><span class="STRN">'example.exampleMethod'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'The module is ready!'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 48</span> </span><span class="WHIT">				</span><span class="NAME">Framework.subscribe</span><span class="PUNC">(</span><span class="STRN">'example.ready'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">one</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">two</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 49</span> </span><span class="WHIT">					</span><span class="NAME">console.log</span><span class="PUNC">(</span><span class="STRN">'Example module is ready and says '</span><span class="PUNC">+</span><span class="NAME">one</span><span class="PUNC">+</span><span class="STRN">' and '</span><span class="PUNC">+</span><span class="NAME">two</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 50</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 51</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 52</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'> 53</span> 				Called when the document is ready after loading the module. If the document
+<span class='line'> 54</span> 				is ready when the module is loaded, domReady is called immediately after
+<span class='line'> 55</span> 				moduleReady.
+<span class='line'> 56</span> 				@param {Framework} Framework Reference to the framework that loaded the module
+<span class='line'> 57</span> 			*/</span><span class="WHIT">
+<span class='line'> 58</span> </span><span class="WHIT">			</span><span class="NAME">domReady</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">Framework</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 59</span> </span><span class="WHIT">				</span><span class="NAME">Framework.call</span><span class="PUNC">(</span><span class="STRN">'example.exampleMethod'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'The DOM is ready!'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 60</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 61</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'> 62</span> 				Called when the framework is ready (all dependencies loaded), before tile loop
+<span class='line'> 63</span> 				@param {Framework} Framework Reference to the framework that loaded the module
+<span class='line'> 64</span> 			*/</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="WHIT">			</span><span class="NAME">ready</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">Framework</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 66</span> </span><span class="WHIT">				</span><span class="NAME">Framework.publish</span><span class="PUNC">(</span><span class="STRN">'example.ready'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'Hello'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'World!'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 67</span> </span><span class="WHIT">				</span><span class="NAME">Framework.call</span><span class="PUNC">(</span><span class="STRN">'example.exampleMethod'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'The framework is ready!'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 68</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 69</span> </span><span class="WHIT">			</span><span class="COMM">/**
+<span class='line'> 70</span> 				Object of API methods for this module that can be called through the framework with 
+<span class='line'> 71</span> 				Framework.call('module.apiMethod', options)
+<span class='line'> 72</span> 				@namespace
+<span class='line'> 73</span> 			*/</span><span class="WHIT">
+<span class='line'> 74</span> </span><span class="WHIT">			</span><span class="NAME">api</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 75</span> </span><span class="WHIT">				</span><span class="COMM">/**
+<span class='line'> 76</span> 					An example method that logs your message. This module calls this method (through the
+<span class='line'> 77</span> 					framework) with each ready callback fired by the framework.
+<span class='line'> 78</span> 					@param {String} options A message to log to the console.
+<span class='line'> 79</span> 					@param {Framework} Framework Reference to the framework that loaded the module.
+<span class='line'> 80</span> 					@example Framework.call('example.exampleMethod', 'Hello!');
+<span class='line'> 81</span> 				*/</span><span class="WHIT">
+<span class='line'> 82</span> </span><span class="WHIT">				</span><span class="NAME">exampleMethod</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">Framework</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 83</span> </span><span class="WHIT">					</span><span class="NAME">console.log</span><span class="PUNC">(</span><span class="STRN">'exampleMethod sez: '</span><span class="PUNC">+</span><span class="NAME">options</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 84</span> </span><span class="WHIT">				</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 85</span> </span><span class="WHIT">			</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 86</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 87</span> </span><span class="WHIT">	</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 88</span> 
+<span class='line'> 89</span> </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">(</span><span class="NAME">jQuery</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">window</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">document</span><span class="PUNC">)</span><span class="PUNC">;</span></pre></body></html>

@@ -1,0 +1,113 @@
+body {
+	text-align: left;
+}
+
+#container {
+	margin-left: 20px;
+}
+
+#toolbar .btn-group {
+	margin-bottom: 12px;
+}
+
+#stop-running-button,
+#stop-listening-button {
+	display: none;
+}
+#stop-running-button {
+	-webkit-border-top-right-radius: 4px;
+	border-top-right-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	-moz-border-radius-bottomright: 4px;
+}
+#stop-listening-button {
+	margin-left: 0;
+	-webkit-border-bottom-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	-webkit-border-top-left-radius: 4px;
+	border-top-left-radius: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	-moz-border-radius-topleft: 4px;
+}
+
+#sample-input {
+	visibility: hidden;
+}
+
+#remove-button {
+	float: right;
+}
+
+.sample-list {
+	list-style-type: none;
+	height: 80%;
+	overflow: auto;
+	float: left;
+	padding: 0;
+	margin: 0;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.sample-list::selection,
+.sample-list::-moz-selection,
+.sample::selection,
+.sample::-moz-selection {
+	background: rgba(0, 0, 0, 0);
+}
+.sample {
+	padding: 5%;
+	cursor: pointer;
+	float: left;
+	clear: both;
+	width: 80%;
+}
+
+#source-list .sample {
+	-webkit-border-bottom-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	-webkit-border-top-left-radius: 4px;
+	border-top-left-radius: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	-moz-border-radius-topleft: 4px;
+}
+#source-list .sample.selected {
+	background-color: rgb(200, 170, 170);
+}
+#source-list .sample.connected {
+	border-right: solid 5px #8dd;
+}
+#source-list .sample.connected.no-destiny {
+	border-right: solid 5px #f00;
+}
+#source-list .sample.running {
+	border-right: solid 20px #6d8;
+}
+#source-list .sample.connected.no-destiny.running {
+	border-right: solid 20px #f00;
+}
+
+#dest-list .sample {
+	-webkit-border-top-right-radius: 4px;
+	border-top-right-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	-moz-border-radius-bottomright: 4px;
+}
+#dest-list .sample.selected {
+	background-color: #333;
+	color: #8dd;
+}
+.sample.destination {
+	border-left: solid 5px #d88;
+}
+#dest-list .sample.running {
+	border-right: solid 20px #6d8;
+}
+.extrapolists .sample {
+	opacity: 0;
+}
+.extrapolists .sample.destiny {
+	background-color: rgb(200, 170, 170);
+}

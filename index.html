@@ -1,0 +1,46 @@
+<!--#include virtual="./includes/header.html"-->
+
+	<div id="toolbar" class="row-fluid toolbar">
+		<div class="span6">
+			<span class="btn-group span12">
+				<a id="connect-button" class="btn btn-large btn-primary disabled span6"><i class="icon-resize-small icon-white"></i> Connect</a>
+				<a id="disconnect-button" class="btn btn-large btn-primary disabled span6"><i class="icon-resize-full icon-white"></i> Disconnect</a>
+			</span>
+		</div>
+		<div class="span6">
+			<span class="btn-group span12">
+				<a id="listen-button" class="btn btn-large btn-inverse disabled span6"><i class="icon-headphones icon-white"></i> Listen</a>
+				<a id="stop-listening-button" class="btn btn-large btn-danger span6"><i class="icon-stop icon-white"></i> Stop</a>
+				<a id="stop-running-button" class="btn btn-large btn-danger span6"><i class="icon-stop icon-white"></i> Stop</a>
+				<a id="run-button" class="btn btn-large btn-success disabled span6"><i class="icon-random icon-white"></i> Run</a>
+			</span>
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+	<script id="source-sample-tmplt" type="text/template"><!--#include virtual="./includes/source-sample.html"--></script>
+	<script id="dest-sample-tmplt" type="text/template"><!--#include virtual="./includes/source-sample.html"--></script>
+	<script id="extrap-sample-tmplt" type="text/template"><!--#include virtual="./includes/source-sample.html"--></script>
+
+	<div class="row-fluid">
+		<ul id="source-list" class="sample-list span3"></ul>
+		<ul id="dest-list" class="sample-list span3"></ul>
+		<div class="extrapolists span6">
+			<ul class="sample-list span4"></ul>
+			<ul class="sample-list span4" style="opacity: 0.7"></ul>
+			<ul class="sample-list span4" style="opacity: 0.5"></ul>
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+	
+	<input id="sample-input" type="file" id="input" multiple>
+
+	<div id="bottom-toolbar" class="row-fluid toolbar">
+		<div class="span12">
+				<a id="add-button" class="btn btn-large btn-primary"><i class="icon-plus icon-white"></i> Add Samples</a>
+				<a id="remove-button" class="btn btn-large disabled btn-danger"><i class="icon-remove icon-white"></i> Remove Selected</a>
+		</div>
+	</div>
+
+<!--#include virtual="./includes/footer.html"-->
