@@ -1,13 +1,13 @@
 /**
-@fileOverview 
+@fileOverview
 */
 
-/**	
+/**
 	rAMP
 	@name rAMP
 	@class
 */
-define('ramp.core', 
+define('ramp.core',
 	['jquery', 'dcupl', 'ramp.sample'],
 	function($, dcupl, Sample) {
 
@@ -25,7 +25,7 @@ define('ramp.core',
 			addSample: function(file) {
 				console.log('rampCore.addSample');
 				//console.log(file);
-				
+
 				var id = 's'+sampleID;
 
 				var s = new Sample({
@@ -44,7 +44,7 @@ define('ramp.core',
 				dcupl.publish('rampCore.newSample', s);
 
 				sampleID += 1;
-				
+
 				return s;
 			},
 			removeSamples: function(ids) {
@@ -71,7 +71,7 @@ define('ramp.core',
 				/*console.log('rampCore.connect');
 				console.log(sources);
 				console.log(dests);*/
-				
+
 				$.each(sources, function(i, sid) {
 					var s = samples[sid];
 					if (typeof s === 'undefined') { console.log('rampCore.connect: no sample with ID '+sid); return; }
@@ -88,10 +88,10 @@ define('ramp.core',
 						var dSample = samples[nid];
 						if (typeof dSample === 'undefined') { console.log('rampCore.connect: no sample with ID '+nid); return; }
 						//add to destinations if it's not in the hash table
-						if (typeof d[nid] === 'undefined') { 
+						if (typeof d[nid] === 'undefined') {
 							dSample.connected();
-							dcupl.publish('sample.connected', dSample);
-							newDests.push(nid); 
+							dcupl.publish('sample.connected', dSample, s);
+							newDests.push(nid);
 						}
 					});
 					s.destinations = s.destinations.concat(newDests);
@@ -115,8 +115,8 @@ define('ramp.core',
 					var newDests = [];
 					//for each destination already on the sample
 					$.each(s.destinations, function(j, id) {
-						if (typeof d[id] === 'undefined') { 
-							newDests.push(id); 
+						if (typeof d[id] === 'undefined') {
+							newDests.push(id);
 						} else {
 							samples[id].disconnected();
 							dcupl.publish('sample.disconnected', samples[id]);
@@ -132,48 +132,53 @@ define('ramp.core',
 			},
 			listen: function(sources, dests) {
 				console.log('listen');
-				console.log(sources);
 				var self = this;
+				// console.log(sources);
 				// console.log('listen');
 				// console.log(sources);
 				// console.log(dests);
-				var destSamples = [];
-				$.each(dests, function(i, id) {
-					var s = samples[id];
-					if (typeof s === 'undefined') { console.log('rampCore.connect: no sample with ID '+id); return; }
-					
-					destSamples.push(s);
-				});
+				if (dests) {
+					var destSamples = [];
+					$.each(dests, function(i, id) {
+						var s = samples[id];
+						if (typeof s === 'undefined') { console.log('rampCore.connect: no sample with ID '+id); return; }
 
-				var listenList = [];
-				$.each(sources, function(i, id) {
-					var s = samples[id];
-					console.log('source '+id);
-					console.log(s);
-					if (typeof s === 'undefined') { console.log('rampCore.connect: no sample with ID '+id); return; }
-					
-					if (destSamples.length) {
-						$.each(destSamples, function(j, ds) {
+						destSamples.push(s);
+					});
+
+					var listenList = [];
+					$.each(sources, function(i, id) {
+						var s = samples[id];
+						console.log('source '+id);
+						console.log(s);
+						if (typeof s === 'undefined') { console.log('rampCore.connect: no sample with ID '+id); return; }
+
+						if (destSamples.length) {
+							$.each(destSamples, function(j, ds) {
+								listenList.push(s);
+								listenList.push(ds);
+							});
+						} else {
 							listenList.push(s);
-							listenList.push(ds);
-						});
-					} else {
-						listenList.push(s);
-					}
-				});
+						}
+					});
+				} else {
+					var listenList = sources;
+				}
 
 				var i = 0,
 					l = listenList.length;
 
 				function listen() {
-					// console.log('listen '+i+', '+l+' '+(i >= l));
-					if (i >= l) { 
-						// console.log('stop!');
+					console.log('listen '+i+', '+l+' '+(i >= l));
+					if (i >= l) {
+						console.log('stop!');
 						rampCore.stop();
-						return; 
+						return;
 					}
 					var s = listenList[i];
-					 console.log('listen to sample '+s.id);
+					console.log('listen to sample '+s.id);
+					dcupl.publish('rampCore.listenSample', s);
 					//TODO: same sample played twice stops playback without calling rampCore.stop
 					s.play(function() {
 						// console.log('afterPlay');
@@ -190,10 +195,10 @@ define('ramp.core',
 				dcupl.publish('rampCore.running');
 
 				var s = samples[id];
-				if (typeof s === 'undefined') { 
-					console.log('rampCore.run: no sample with ID '+id); 
+				if (typeof s === 'undefined') {
+					console.log('rampCore.run: no sample with ID '+id);
 					rampCore.stop();
-					return; 
+					return;
 				}
 				console.log('run');
 				function run() {

@@ -8,7 +8,7 @@
 	@class
 */
 define('ramp.ui',
-	['jquery', 'ramp.core', 'dcupl', 'tmplt'],
+	['jquery', 'ramp.core', 'dcupl', 'tmplt', 'ramp.runList', 'ramp.runListUi'],
 	function($, rampCore, dcupl, tmplt) {
 
 
@@ -355,7 +355,7 @@ define('ramp.ui',
 			}
 		});
 
-		dcupl.subscribe('rampCore.runSample', function(s) {
+		dcupl.subscribe('rampCore.runSample rampCore.listenSample', function(s) {
 			$sourceList.find('.running').removeClass('running');
 			var $s = $('#'+sourceIdPrefix+s.id).addClass('running');
 			// rampUI.showDests(s);

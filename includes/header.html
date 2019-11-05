@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<!--link rel="stylesheet" href="/css/style.css"-->
-	
+
 	<script src="/js/libs/modernizr-2.0.min.js"></script>
 	<script>
 		var _built = window.location.href.match('fullsrc') ? '' : '-built',
@@ -27,12 +27,16 @@
 				'tmplt': 'libs/tmplt',
 				'ramp.core': 'modules/ramp.core',
 				'ramp.sample': 'modules/ramp.sample',
+				'ramp.runList': 'modules/ramp.runList',
+				'ramp.runListUi': 'modules/ramp.runListUi',
 				'ramp.ui': 'modules/ramp.ui'
 			},
 			deps: ['script'+_built]
 		};
 		document.write('<link rel="stylesheet" href="/css/style'+_built+'.css">');
 	</script>
+
+	<link rel="stylesheet" type="text/css" href="/css/ramp-run-list.css">
 </head>
 <body>
 <div id="container">

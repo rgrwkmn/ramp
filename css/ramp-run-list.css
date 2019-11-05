@@ -1,0 +1,19 @@
+#ramp-run-list {
+    padding: 0;
+    list-style-type: none;
+    max-height: 300px;
+    overflow: auto;
+}
+
+#ramp-run-list li {
+    padding: 3px;
+    cursor: pointer;
+}
+
+#ramp-run-list li:hover {
+    background: #aaa;
+}
+
+#ramp-run-list li.selected {
+    background: #888;
+}
