@@ -1,16 +1,14 @@
+```
 Structure
 	admin/
-		Promo Administration code that has it's own css, images and js although it leverages the js 
+		Promo Administration code that has it's own css, images and js although it leverages the js
 		framework js/adf.js
 	app/
 		Index for the full page version of the FB app for logged in users.
 	pagetab/
 		Page tab version of the FB app.
 	includes/
-		Include files for footers, headers, and individual page components. 
-		promos/
-			All promo tile markup. These can probably be condensed during integration. See 
-			includes/promos/README.txt for suggested data that should be available in promo JSPs.
+		Include files for footers, headers, and individual page components.
 	images/
 	css/
 	js/
@@ -18,15 +16,15 @@ Structure
 		From the JS optimizer (optimize.sh)
 			URL Helpers
 			To ease in development, there are two URL helpers you can use to force loading the pre-build
-			scripts or the combined and non-minified scripts: dev-prebuild and dev-fullsrc respectively. 
-			By default, the minified script (js/script-built.min.js) is used. Just add either of those to 
-			the URL however you can. 
+			scripts or the combined and non-minified scripts: dev-prebuild and dev-fullsrc respectively.
+			By default, the minified script (js/script-built.min.js) is used. Just add either of those to
+			the URL however you can.
 
 			Examples
 				http://socialflyer.url/pagetab?dev-fullsrc
 				http://socialflyer.url/app#dev-prebuild
 
-			RequireJS can react differently in different contexts, so if you require anything in your 
+			RequireJS can react differently in different contexts, so if you require anything in your
 			modules or plugins make sure to check that it works in prebuild, fullsrc and minified modes.
 
 			Why so many versions?
@@ -38,13 +36,13 @@ Structure
 	optimize.sh - CSS/JS Optimize script
 
 Setup
-	In order to run this code on your machine, create a virtual host and point it to the directory 
+	In order to run this code on your machine, create a virtual host and point it to the directory
 	containing this README file. You will need Apache SSI capabilities which should be enabled by the
-	.htaccess file in this directory. 
+	.htaccess file in this directory.
 
 	The different pages you can view:
 		http://your-virtual-host.com/pagetab/index.html
-			The public landing page with an animated teaser. After about 5 seconds the teaser will 
+			The public landing page with an animated teaser. After about 5 seconds the teaser will
 			collapse to reveal a feature tile.
 
 		http://your-virtual-host.com/pagetab/all-tiles.html
@@ -59,3 +57,4 @@ Setup
 
 		http://your-virtual-host.com/app/promo-detail.html
 			The logged in user promo detail page.
+```
